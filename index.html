@@ -11,7 +11,7 @@
         :root {
             --bg: #050505; /* Deep Black */
             --card-bg: #0a0a0c;
-            --accent: #00ff9d; /* The Neon Green from your screenshot */
+            --accent: #00ff9d; /* Neon Green */
             --text-main: #ffffff;
             --text-dim: #a0a0a0;
             --border: #1f1f22;
@@ -27,7 +27,7 @@
             overflow-x: hidden;
         }
 
-        /* Tech Grid Background */
+        /* Tech Grid Background Pattern */
         body::before {
             content: "";
             position: fixed;
@@ -42,7 +42,7 @@
 
         /* --- HERO SECTION --- */
         header { 
-            min-height: 90vh; 
+            min-height: 95vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
@@ -72,23 +72,25 @@
         h1 { 
             font-size: clamp(3rem, 8vw, 5rem); 
             font-weight: 800; 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             line-height: 1.1;
             letter-spacing: -2px;
             text-transform: uppercase;
         }
         
         .hero-desc { 
-            font-size: 1.25rem; 
+            font-size: 1.15rem; 
             color: var(--text-dim); 
-            max-width: 800px; 
+            max-width: 850px; 
             margin-bottom: 40px; 
             font-weight: 300;
+            border-left: 3px solid var(--border);
+            padding-left: 20px;
         }
         
         .hero-desc b { color: #fff; font-weight: 600; }
 
-        /* Status Bar (Matches your screenshot) */
+        /* Status Bar */
         .status-bar { 
             display: flex; flex-wrap: wrap; gap: 30px; 
             padding: 15px 25px; 
@@ -96,7 +98,7 @@
             border: 1px solid var(--border);
             width: fit-content;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .status-item span { color: var(--accent); font-weight: bold; }
@@ -104,11 +106,19 @@
         /* --- SECTIONS COMMON --- */
         section { margin: 120px 0; }
         
-        .section-header { margin-bottom: 40px; }
+        .section-header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
         .section-title { 
-            font-size: 2.5rem; 
+            font-size: 2rem; 
             font-weight: 700; 
-            margin-bottom: 10px;
+            color: #fff;
+            display: inline-block;
+        }
+        .section-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 5px;
         }
         
         /* --- SKILLS GRID --- */
@@ -128,122 +138,117 @@
         .skill-card:hover { 
             border-color: var(--accent); 
             transform: translateY(-5px); 
+            box-shadow: 0 5px 20px rgba(0, 255, 157, 0.05);
         }
         
         .skill-card i { font-size: 2rem; color: var(--accent); margin-bottom: 20px; }
         .skill-card h3 { margin-bottom: 15px; font-size: 1.2rem; }
         .skill-card p { font-size: 0.95rem; color: var(--text-dim); line-height: 1.7; }
 
-        /* --- FLAGSHIP INNOVATION (Matches Image 2) --- */
+        /* --- FLAGSHIP INNOVATION --- */
         .flagship-box { 
             border: 1px solid var(--accent); 
             padding: 50px; 
             background: linear-gradient(180deg, rgba(0,255,157,0.03) 0%, rgba(0,0,0,0) 100%);
-            position: relative;
         }
 
-        .badges { display: flex; gap: 15px; margin-bottom: 25px; }
+        .badges { display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
         .badge { 
             background: var(--accent); 
             color: #000; 
             padding: 6px 12px; 
-            font-size: 0.8rem; 
+            font-size: 0.75rem; 
             font-weight: 800; 
             text-transform: uppercase; 
             letter-spacing: 0.5px;
         }
 
-        .flagship-title { font-size: 2rem; font-weight: 700; margin-bottom: 15px; }
+        .flagship-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; }
         
-        /* The Architecture Diagram Placeholder */
-        .diagram-container {
-            width: 100%;
-            height: 300px;
-            background: #0f0f12;
-            border: 1px dashed var(--border);
-            margin: 30px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-dim);
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .diagram-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Keeps aspect ratio */
-        }
-
+        /* Stats Grid (Replacing Image) */
         .stats-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
             gap: 30px; 
             margin-top: 40px;
             border-top: 1px solid var(--border);
             padding-top: 30px;
         }
         
+        .stat-item { border-left: 2px solid var(--border); padding-left: 20px; transition: 0.3s; }
+        .stat-item:hover { border-color: var(--accent); }
+        
         .stat-val { 
             display: block; 
-            font-size: 2.2rem; 
+            font-size: 2.5rem; 
             font-weight: 800; 
             color: var(--accent); 
             margin-bottom: 5px;
+            font-family: 'JetBrains Mono', monospace;
         }
-        .stat-label { color: var(--text-main); font-size: 0.9rem; }
+        .stat-label { color: var(--text-main); font-size: 0.9rem; font-weight: 500; }
 
-        /* --- OTHER PROJECTS --- */
-        .project-list { display: grid; gap: 20px; }
+        /* --- PROJECT CARDS --- */
+        .project-list { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        
         .project-card { 
             padding: 30px; 
-            border-bottom: 1px solid var(--border); 
+            border: 1px solid var(--border); 
+            background: var(--card-bg);
             transition: 0.2s;
             display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .project-card:hover { border-color: var(--text-dim); }
+        
+        .project-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; }
+        .project-header h3 { font-size: 1.4rem; color: #fff; }
+        .project-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); border: 1px solid var(--accent); padding: 2px 8px; border-radius: 4px; }
+        
+        .project-desc { color: var(--text-dim); font-size: 0.95rem; max-width: 800px; }
+        .project-meta { font-family: 'JetBrains Mono', monospace; color: #666; font-size: 0.8rem; margin-top: auto; }
+
+        /* --- EXPERIENCE & WORKSHOPS --- */
+        .exp-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        
+        .timeline-item { border-left: 2px solid var(--border); padding-left: 25px; margin-bottom: 30px; position: relative; }
+        .timeline-item::before {
+            content: ""; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; background: var(--accent); border-radius: 50%;
+        }
+        
+        .workshop-list { list-style: none; }
+        .workshop-item { 
+            padding: 15px 0; 
+            border-bottom: 1px solid var(--border); 
+            display: flex; 
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
-        .project-card:hover { background: #0f0f12; }
-        .project-info h3 { font-size: 1.4rem; margin-bottom: 8px; color: #fff; }
-        .project-info p { color: var(--text-dim); max-width: 600px; }
-        .project-tech { 
-            font-family: 'JetBrains Mono', monospace; 
-            color: var(--accent); 
-            font-size: 0.85rem; 
-            margin-top: 10px; 
-        }
-
-        /* --- EXPERIENCE --- */
-        .exp-card {
-            border-left: 2px solid var(--border);
-            padding-left: 25px;
-            margin-bottom: 30px;
-        }
-        .exp-card:hover { border-color: var(--accent); }
-        .exp-role { font-size: 1.3rem; font-weight: 700; color: #fff; }
-        .exp-company { color: var(--accent); margin-bottom: 10px; display: block; }
+        .workshop-item:last-child { border-bottom: none; }
+        .workshop-title { font-weight: 600; color: #fff; }
+        .workshop-desc { font-size: 0.85rem; color: var(--text-dim); }
 
         /* --- FOOTER --- */
         footer { 
             border-top: 1px solid var(--border); 
             padding: 80px 0; 
             text-align: center; 
+            margin-top: 100px;
         }
         
         .social-links { display: flex; justify-content: center; gap: 40px; margin-top: 30px; }
         .social-links a { 
             color: var(--text-dim); 
-            font-size: 2rem; 
+            font-size: 1.8rem; 
             transition: 0.3s; 
+            text-decoration: none;
         }
         .social-links a:hover { color: var(--accent); transform: scale(1.1); }
         
-        /* Mobile Tweaks */
         @media (max-width: 768px) {
             h1 { font-size: 3rem; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
-            .project-card { flex-direction: column; align-items: flex-start; gap: 15px; }
         }
     </style>
 </head>
@@ -253,12 +258,14 @@
     
     <header>
         <div class="terminal-line">
-            > <span class="typing-effect">system.init(JANJITHA_ENGINEER)</span>
+            > <span class="typing-effect">system.init(JANJITHA_V_ENGINEER)</span>
         </div>
         <h1>Janjitha V</h1>
-        <p class="hero-desc">
-            ECE & Data Science Engineer building reliable engineering systems. I bridge hardware behavior and data flow, focusing on <b>industrial operating conditions</b> rather than lab-idealized demos.
-        </p>
+        <div class="hero-desc">
+            <p>I am an Electronics and Communication Engineering student with a parallel background in Data Science, interested in building reliable engineering systems rather than isolated demos. I approach problems by breaking them down across hardware behavior, data flow, and system constraints, and I care deeply about correctness, validation, and measurable outcomes.</p>
+            <br>
+            <p>My work spans embedded systems, industrial communication, machine learning, and cybersecurity, with a strong focus on how systems behave in <b>real operating conditions</b>, not just in ideal lab settings.</p>
+        </div>
         
         <div class="status-bar">
             <div class="status-item">STATUS: <span>ACTIVE</span></div>
@@ -269,34 +276,39 @@
 
     <section id="skills">
         <div class="section-header">
+            <span class="section-subtitle">CAPABILITIES</span>
             <h2 class="section-title">Technical Matrix</h2>
         </div>
         <div class="skills-grid">
             <div class="skill-card">
                 <i class="fas fa-microchip"></i>
                 <h3>Embedded & IIoT</h3>
-                <p>ESP32-S3, Modbus RTU/TCP, RS-485, MQTT, LTE(4G), Ethernet, RTOS concepts, Store-and-Forward.</p>
+                <p>ESP32-S3, Raspberry Pi, Modbus RTU/TCP, RS-485, MQTT, LTE(4G), Ethernet, RTOS, I2C, SPI.</p>
             </div>
             <div class="skill-card">
                 <i class="fas fa-brain"></i>
                 <h3>Data Science & ML</h3>
-                <p>Time-Series Forecasting, LSTM, LightGBM, XGBoost, Optuna Tuning, Feature Engineering.</p>
+                <p>Time-Series Analysis, LSTM, LightGBM, XGBoost, Anomaly Detection, Optuna, Power BI.</p>
             </div>
             <div class="skill-card">
                 <i class="fas fa-code"></i>
                 <h3>Software Stack</h3>
-                <p>Python (Pandas/NumPy), C, C++, SQL, REST APIs, Git, Linux, Shell Scripting.</p>
+                <p>C, C++, Python, SQL, REST APIs, JSON, YAML, Git, Linux, VS Code.</p>
             </div>
             <div class="skill-card">
                 <i class="fas fa-user-shield"></i>
                 <h3>Cybersecurity</h3>
-                <p>CVE Analysis, RSA/Fernet Encryption, SQL Injection, Digital Forensics, Secure Socket Programming.</p>
+                <p>CVE Analysis, RSA/Fernet, SQL Injection, Digital Forensics, Secure Socket Programming.</p>
             </div>
         </div>
     </section>
 
     <section id="flagship">
-        <h2 class="section-title">Flagship Innovation</h2>
+        <div class="section-header">
+            <span class="section-subtitle">PROJECT HIGHLIGHT</span>
+            <h2 class="section-title">Flagship Innovation</h2>
+        </div>
+        
         <div class="flagship-box">
             <div class="badges">
                 <span class="badge">PATENT FILED</span>
@@ -305,82 +317,118 @@
             </div>
             
             <h3 class="flagship-title">Industrial IoT Data Logger for Industry 4.0</h3>
-            <p style="color: var(--text-dim); max-width: 800px;">
-                Store-and-forward industrial data acquisition system designed for zero data loss. Capable of acquiring data from heterogeneous sensors and syncing securely to the cloud via MQTT.
+            <p style="color: var(--text-dim); margin-bottom: 20px;">
+                <b>Problem:</b> Manual logging and unstable connectivity in industry lead to data loss and 3-4 hour delays in fault detection.<br>
+                <b>Solution:</b> Designed a robust store-and-forward acquisition system (ESP32 | Modbus | RS-485 | LTE). It buffers data locally on SD cards during outages and syncs to the cloud via secure MQTT when connectivity is restored.
             </p>
-
-            <div class="diagram-container">
-                <img src="path_to_your_diagram.jpg" alt="[System Architecture Diagram Placeholder: Please insert image of ESP32, Sensors, SD Card, and Cloud Flow]">
-            </div>
 
             <div class="stats-grid">
                 <div class="stat-item">
                     <span class="stat-val">0%</span>
-                    <span class="stat-label">Data Loss</span>
+                    <span class="stat-label">Data Loss on Failure</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-val">&lt; 5m</span>
-                    <span class="stat-label">Fault Detection</span>
+                    <span class="stat-label">Fault Detection Time</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-val">1.5k</span>
-                    <span class="stat-label">Records / Day</span>
+                    <span class="stat-label">Sensor Records / Day</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-val">65%</span>
-                    <span class="stat-label">Fault Reduction</span>
+                    <span class="stat-label">Reduction in Faults</span>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <h2 class="section-title">Selected Projects</h2>
+        <div class="section-header">
+            <span class="section-subtitle">ENGINEERING & ANALYTICS</span>
+            <h2 class="section-title">Selected Projects</h2>
+        </div>
+        
         <div class="project-list">
             
             <div class="project-card">
-                <div class="project-info">
+                <div class="project-header">
                     <h3>Modbus RTU Control System</h3>
-                    <p>Deterministic control using FSM-based logic. Achieved stable 50Hz polling with zero CRC errors and 100% float reconstruction.</p>
-                    <div class="project-tech">ESP32 • RS-485 • FSM • C++</div>
+                    <span class="project-tag">EMBEDDED</span>
                 </div>
+                <p class="project-desc">Implemented deterministic Modbus RTU using FSM-based control. Achieved stable 50Hz polling, eliminated ±30% data jumps via race-condition handling, and verified 100% IEEE-754 float reconstruction.</p>
+                <div class="project-meta">ESP32 • RS-485 • FSM • C++</div>
             </div>
 
             <div class="project-card">
-                <div class="project-info">
+                <div class="project-header">
                     <h3>ML Audience Demand Forecasting</h3>
-                    <p>End-to-end pipeline using LightGBM/XGBoost. Achieved OOF RMSLE of 0.0298 using advanced time-series feature engineering.</p>
-                    <div class="project-tech">Python • XGBoost • Optuna • Pandas</div>
+                    <span class="project-tag">MACHINE LEARNING</span>
                 </div>
+                <p class="project-desc">End-to-end supervised pipeline using LightGBM and XGBoost with Optuna tuning. Used Log1p transformation and leakage-safe GroupKFold validation to achieve an OOF RMSLE of 0.0298.</p>
+                <div class="project-meta">Python • Time-Series • Stacking • Feature Engineering</div>
             </div>
 
             <div class="project-card">
-                <div class="project-info">
-                    <h3>Business Analytics (Tailor Shop)</h3>
-                    <p>Identified 27% fabric wastage and reduced inventory costs by 20% through custom Power BI dashboards.</p>
-                    <div class="project-tech">Power BI • SQL • Data Cleaning</div>
+                <div class="project-header">
+                    <h3>Tailor Shop Analytics Capstone</h3>
+                    <span class="project-tag">DATA ANALYTICS</span>
                 </div>
+                <p class="project-desc">Analyzed 500+ business records to identify 27% fabric wastage and 35% delivery delays. Built Power BI dashboards that reduced reporting time from hours to minutes.</p>
+                <div class="project-meta">Power BI • SQL • Data Cleaning</div>
             </div>
 
             <div class="project-card">
-                <div class="project-info">
-                    <h3>Cybersecurity Tools Suite</h3>
-                    <p>Developed a Ransomware Simulator (Fernet), Secure Chat (RSA), and Multi-threaded Port Scanner for educational analysis.</p>
-                    <div class="project-tech">Python • Cryptography • Sockets</div>
+                <div class="project-header">
+                    <h3>Cybersecurity Tool Suite</h3>
+                    <span class="project-tag">SECURITY</span>
                 </div>
+                <p class="project-desc">Developed multiple tools for analysis: Ransomware Simulator (Fernet), Secure Chat (RSA), Multi-threaded Port Scanner, and Phishing Website Detection using ML.</p>
+                <div class="project-meta">Python • Cryptography • Sockets • Digital Forensics</div>
             </div>
 
         </div>
     </section>
 
     <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="exp-card">
-            <div class="exp-role">Technical Content Writer</div>
-            <span class="exp-company">Cappricio Securities</span>
-            <p style="color: var(--text-dim); margin-top: 10px;">
-                Authored technical content on CVEs, vulnerabilities, and attack vectors. Translated complex security concepts (SQLi, Phishing) into clear, enterprise-focused documentation for IT & SOC teams.
-            </p>
+        <div class="exp-container">
+            
+            <div>
+                <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 25px;">Experience</h3>
+                <div class="timeline-item">
+                    <h4 style="color: #fff; font-size: 1.1rem;">Technical Content Writer – Cybersecurity</h4>
+                    <span style="color: var(--accent); font-family: 'JetBrains Mono'; font-size: 0.85rem;">Cappricio Securities</span>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">
+                        Authored technical content on CVEs and attack vectors. Translated complex security concepts (SQLi, Phishing, Ransomware) into enterprise-focused documentation for IT & SOC teams.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 25px;">Workshops & Training</h3>
+                <ul class="workshop-list">
+                    <li class="workshop-item">
+                        <span class="workshop-title">Raspberry Pi & Node-RED</span>
+                        <span class="workshop-desc">Industrial IoT Apps</span>
+                    </li>
+                    <li class="workshop-item">
+                        <span class="workshop-title">Transportation & Logistics</span>
+                        <span class="workshop-desc">System Optimization</span>
+                    </li>
+                    <li class="workshop-item">
+                        <span class="workshop-title">NLP Fundamentals</span>
+                        <span class="workshop-desc">Text Preprocessing</span>
+                    </li>
+                    <li class="workshop-item">
+                        <span class="workshop-title">Reinforcement Learning</span>
+                        <span class="workshop-desc">Core Concepts</span>
+                    </li>
+                    <li class="workshop-item">
+                        <span class="workshop-title">Digital Forensics</span>
+                        <span class="workshop-desc">Investigation Workflows</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -391,7 +439,7 @@
         <div class="social-links">
             <a href="mailto:yourmail@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="https://github.com/jan08-ux" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/janjitha-945b1a369" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://linkedin.com/in/janjitha-945b1a369" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
         
         <p style="margin-top: 50px; font-size: 0.8rem; color: #333;">
